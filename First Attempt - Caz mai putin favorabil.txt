@@ -1,0 +1,61 @@
+
+public class TestRoweb {
+
+    public static void main(String[] args) {
+        int[] array = {4, 5, 7, 11, 8};
+
+//        array[0] = 3;
+//        array[1] = 4;
+//        array[2] = 5;
+//        array[3] = 6;
+//        array[4] = 7;
+        int[] M = {3};
+
+        int n = array.length;
+        int temp = 0;
+
+        //Bubble sort pentru numere pozitive
+        if (M[0] > 0) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 1; j < (n - i); j++) {
+                    if (array[j - 1] < array[j]) {
+                        temp = array[j - 1];
+                        array[j - 1] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+        }
+
+        //Bubble sort pentru numere negative
+        if (M[0] < 0) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 1; j < (n - i); j++) {
+                    if (array[j - 1] > array[j]) {
+                        temp = array[j - 1];
+                        array[j - 1] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+        }
+        
+        // In aceasta bucla se parcurge fiecare element al array-ului si se verifica egalitatea: array[i] - array[j] == M[0]
+	// Acest caz este mai putin favorabil deoarece bucla trebuie sa compare fiecare element al array-ului chiar daca array[i] - array[j]
+	// este mai mare / mai mic decat M[0]
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i; j < array.length; j++) {
+                if (array[i] - array[j] == M[0]) {
+                    System.out.println(array[i] + " - " + array[j] + " = " + M[0]);
+                }
+            }
+        }
+        
+//        for(int i = 0; i<array.length; i++){
+//            System.out.print(array[i] + " ");
+//        }
+
+    }
+
+}
